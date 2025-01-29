@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
+import { ThemeProvider } from './providers';
+import type { JSX } from 'react';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -22,13 +24,23 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>): JSX.Element {
   return (
-    <html lang="en">
+    /*
+     * The "suppressHydrationWarning" works only one level deep, meaning it does not
+     * suppress warnings for the children of the <body> tag.
+     *
+     * We need to use it because of the ThemeProvider. This happens because Next.js
+     * renders on the server, and we cannot determine the theme during server-side rendering.
+     * As a result, the theme will always be undefined until it is mounted on the client.
+     *
+     * More at: https://github.com/pacocoursey/next-themes
+     */
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );
