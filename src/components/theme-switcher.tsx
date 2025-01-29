@@ -30,10 +30,9 @@ export function ThemeSwitcher(): JSX.Element | null {
     <Button
       variant="outline"
       onClick={updateTheme}
-      className="flex items-center gap-2 rounded-full !p-4"
+      className="text-primary flex items-center gap-2 !p-4"
     >
-      {isDark ? <Sun size={28} /> : <Moon size={28} />}
-      <span>{isDark ? 'Light Mode' : 'Dark Mode'}</span>
+      {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
     </Button>
   );
 }

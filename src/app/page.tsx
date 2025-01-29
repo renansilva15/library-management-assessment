@@ -1,12 +1,12 @@
 import { Auth } from '@/components/auth';
-import { ThemeSwitcher } from '@/components/theme-switcher';
+import { Header } from '@/components/header';
 import type { JSX } from 'react';
 
 export default function Home(): JSX.Element {
   return (
-    <main className="bg-background text-foreground min-h-screen">
+    <main className="min-h-screen">
+      <Header />
       <Auth />
-      <ThemeSwitcher />
     </main>
   );
 }
