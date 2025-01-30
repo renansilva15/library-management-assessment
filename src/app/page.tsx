@@ -17,7 +17,7 @@ export default async function Home(): Promise<JSX.Element> {
   });
 
   return (
-    <main className="flex min-h-screen w-full justify-center pt-32">
+    <main className="flex min-h-screen w-full justify-center pb-16 pt-32">
       <HydrationBoundary state={dehydrate(queryClient)}>
         <Library />
       </HydrationBoundary>
