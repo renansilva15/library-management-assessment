@@ -19,6 +19,7 @@ interface AuthContextState {
   register: (email: string, password: string) => Promise<AuthResponse>;
   logout: () => void;
   isAuthenticated: boolean;
+  isAdmin?: boolean;
 }
 
 interface AuthContextProviderProps {
@@ -111,6 +112,8 @@ export function AuthContextProvider({
 
   const isAuthenticated = Boolean(user);
 
+  const isAdmin = user?.role === Role.Admin;
+
   useEffect(function getStoredUser() {
     const storedUser = getLocalStorageUser();
 
@@ -121,7 +124,7 @@ export function AuthContextProvider({
 
   return (
     <AuthContext.Provider
-      value={{ user, login, register, logout, isAuthenticated }}
+      value={{ user, login, register, logout, isAuthenticated, isAdmin }}
     >
       {children}
     </AuthContext.Provider>
