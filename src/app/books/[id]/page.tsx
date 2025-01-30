@@ -13,6 +13,7 @@ import { CardHeader, CardTitle, CardContent, Card } from '@/components/ui/card';
 import { Book } from 'lucide-react';
 import Link from 'next/link';
 import { BookEditForm } from '@/components/book/book-edit-form';
+import { BookDeletePopup } from '@/components/book/book-delete-popup';
 
 // TODO: Split this component into smaller components
 export default function BookPage(): JSX.Element {
@@ -47,6 +48,12 @@ export default function BookPage(): JSX.Element {
     setIsEditing((prev) => !prev);
   };
 
+  const toggleDelete = (): void => {
+    setIsDeleting((prev) => !prev);
+  };
+
+  const isNotPerformAction = !isEditing && !isDeleting;
+
   // TODO: Move to others components
 
   if (!parsedId.success) {
@@ -63,11 +70,17 @@ export default function BookPage(): JSX.Element {
 
   return (
     <main className="flex min-h-screen w-full flex-col items-center gap-4 px-4 pb-16 pt-32 lg:px-0">
+      {/* TODO: Move editing and deleting to a different place */}
+
+      {isDeleting ? (
+        <BookDeletePopup book={bookData} onCancel={toggleDelete} />
+      ) : null}
+
       {isEditing ? (
         <BookEditForm book={bookData} onCancel={toggleEdit} />
       ) : null}
 
-      {!isEditing ? (
+      {isNotPerformAction ? (
         <Card
           key={bookData.id}
           className="flex h-56 w-full max-w-sm flex-col justify-between"
@@ -90,7 +103,7 @@ export default function BookPage(): JSX.Element {
           </CardContent>
         </Card>
       ) : null}
-      {isAdmin && !isEditing ? (
+      {isAdmin && isNotPerformAction ? (
         <div className="flex justify-center gap-4 text-primary">
           <Button
             variant="outline"
@@ -100,13 +113,17 @@ export default function BookPage(): JSX.Element {
             Edit
           </Button>
 
-          <Button variant="destructive" className="w-32 border">
+          <Button
+            variant="destructive"
+            className="w-32 border"
+            onClick={toggleDelete}
+          >
             Delete
           </Button>
         </div>
       ) : null}
 
-      {!isEditing ? (
+      {isNotPerformAction ? (
         <Button asChild variant="outline" className="w-32">
           <Link href="/">Back</Link>
         </Button>

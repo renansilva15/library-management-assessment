@@ -35,18 +35,6 @@
   ],
   "books": [
     {
-      "id": "1",
-      "title": "The Hobbit",
-      "author": "J.R.R. Tolkien",
-      "year": "1937"
-    },
-    {
-      "id": "2",
-      "title": "Harry Potter2",
-      "author": "J.K. Rowling",
-      "year": "1997"
-    },
-    {
       "id": "3",
       "title": "Don Quixote",
       "author": "Miguel de Cervantes",
@@ -93,12 +81,6 @@
       "title": "The Great Gatsby",
       "author": "F. Scott Fitzgerald",
       "year": "1925"
-    },
-    {
-      "id": "11",
-      "title": "The Alchemist",
-      "author": "Paulo Coelho",
-      "year": "1988"
     },
     {
       "id": "12",

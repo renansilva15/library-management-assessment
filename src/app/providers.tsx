@@ -17,6 +17,8 @@ export function Providers({ children }: ThemeProviderProps): JSX.Element {
       <AuthContextProvider>
         <QueryClientProvider client={queryClient}>
           {children}
+
+          {/* TODO: Better ui on toast (mainly colors, green for creating a book) */}
           <Toaster />
         </QueryClientProvider>
       </AuthContextProvider>
