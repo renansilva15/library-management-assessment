@@ -1,4 +1,4 @@
-import { Book, User } from 'lucide-react';
+import { Book, LogOut, User } from 'lucide-react';
 import type { JSX } from 'react';
 import { ThemeSwitcher } from './theme-switcher';
 import { Button } from './ui/button';
@@ -6,18 +6,21 @@ import Link from 'next/link';
 
 export function Header(): JSX.Element {
   return (
-    <header className="h-24 shadow">
+    <header className="fixed h-24 w-full shadow dark:shadow-primary">
       <div className="flex h-full items-center justify-between p-4">
-        <Book className="text-primary h-10 w-10" />
+        <Link href="/">
+          <Book className="h-10 w-10 text-primary" />
+        </Link>
 
-        <h1 className="text-primary text-3xl">Library Management</h1>
+        <h1 className="text-3xl text-primary">Library Management</h1>
 
         <div className="flex items-center gap-2">
           <ThemeSwitcher />
 
           <Button asChild variant="outline" className="text-primary">
             <Link href="/">
-              <User className="h-5 w-5" />
+              <LogOut className="h-5 w-5" />
+              {/* <User className="h-5 w-5" /> */}
             </Link>
           </Button>
         </div>

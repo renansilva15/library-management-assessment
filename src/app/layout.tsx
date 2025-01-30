@@ -4,6 +4,8 @@ import './globals.css';
 import { ThemeProvider } from './providers';
 import type { JSX } from 'react';
 import { Header } from '@/components/header';
+import { AuthWrapper } from '@/components/auth-wrapper';
+import { AuthContextProvider } from '@/contexts/auth-context';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -42,8 +44,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground antialiased`}
       >
         <ThemeProvider>
-          <Header />
-          {children}
+          <AuthContextProvider>
+            <Header />
+            <AuthWrapper>{<>{children}</>}</AuthWrapper>
+          </AuthContextProvider>
         </ThemeProvider>
       </body>
     </html>
