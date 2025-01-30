@@ -12,9 +12,9 @@ import Link from 'next/link';
 
 export function Library(): JSX.Element {
   const {
-    data: books,
-    isLoading,
-    error,
+    data: dataBooks,
+    isLoading: isLoadingBooks,
+    error: errorBooks,
   } = useQuery({
     queryKey: [BOOKS_CACHE_KEY],
     queryFn: fetchBooks,
@@ -22,19 +22,19 @@ export function Library(): JSX.Element {
     refetchOnReconnect: false,
   });
 
-  if (isLoading) {
+  if (isLoadingBooks) {
     // The components are first loaded at the server side, so it is not likely to need the loading state until we add pagination
     return <div>Loading...</div>;
   }
 
-  if (error) {
+  if (errorBooks) {
     // TODO: Add generic error component
     return <div>Error fetching books</div>;
   }
 
   return (
     <div className="flex w-full max-w-screen-md gap-4">
-      {books?.map((book) => (
+      {dataBooks?.map((book) => (
         <Card key={book.id} className="h-fit">
           <CardHeader>
             <Book className="h-10 w-10" />
