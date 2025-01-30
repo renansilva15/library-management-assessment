@@ -1,7 +1,7 @@
 'use client';
 
-import { Role } from '@/app/types/role';
-import type { User, UserWithToken } from '@/app/types/user';
+import { Role } from '@/types/role';
+import type { User, UserWithToken } from '@/types/user';
 import { api } from '@/lib/api';
 import type { JSX } from 'react';
 import { useState, useEffect, useContext, createContext } from 'react';

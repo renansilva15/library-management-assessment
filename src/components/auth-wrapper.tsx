@@ -3,15 +3,15 @@
 import { useState, type JSX } from 'react';
 import { Card, CardContent, CardTitle } from './ui/card';
 import { useForm } from 'react-hook-form';
-import type { LoginSchema } from '@/app/validations/login';
-import { loginSchema } from '@/app/validations/login';
+import type { LoginSchema } from '@/validations/login';
+import { loginSchema } from '@/validations/login';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Loader2 } from 'lucide-react';
 
-import type { RegisterSchema } from '@/app/validations/register';
-import { registerSchema } from '@/app/validations/register';
+import type { RegisterSchema } from '@/validations/register';
+import { registerSchema } from '@/validations/register';
 import { useAuth } from '@/contexts/auth-context';
 
 interface LoginProps {

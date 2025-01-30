@@ -13,6 +13,12 @@
       "email": "user@example.com",
       "password": "user123",
       "role": "user"
+    },
+    {
+      "id": "70d8",
+      "email": "renangabrielsilva150@gmail.com",
+      "password": "123456",
+      "role": "user"
     }
   ],
   "books": [
