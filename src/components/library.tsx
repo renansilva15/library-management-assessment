@@ -33,12 +33,14 @@ export function Library(): JSX.Element {
   }
 
   return (
-    <div className="flex w-full max-w-screen-md gap-4">
+    <div className="grid w-full max-w-screen-md grid-cols-2 gap-4 px-4 lg:grid-cols-3">
       {dataBooks?.map((book) => (
-        <Card key={book.id} className="h-fit">
+        <Card key={book.id} className="flex h-56 flex-col justify-between">
           <CardHeader>
             <Book className="h-10 w-10" />
-            <CardTitle className="text-xl font-bold">{book.title}</CardTitle>
+            <CardTitle className="line-clamp-2 text-xl font-bold">
+              {book.title}
+            </CardTitle>
           </CardHeader>
           <CardContent className="flex flex-col gap-2">
             <Button asChild variant="outline" className="text-primary">
