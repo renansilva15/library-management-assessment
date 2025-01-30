@@ -9,7 +9,13 @@ import { useAuth } from '@/contexts/auth-context';
 import { ADMIN_PAGE } from '@/constants/routes';
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from './ui/sheet';
 
-export function AdminPageButton(): JSX.Element | null {
+interface AdminPageButtonProps {
+  onClick?: () => void;
+}
+
+export function AdminPageButton({
+  onClick,
+}: AdminPageButtonProps): JSX.Element | null {
   const { isAdmin } = useAuth();
 
   if (!isAdmin) {
@@ -17,7 +23,12 @@ export function AdminPageButton(): JSX.Element | null {
   }
 
   return (
-    <Button asChild variant="outline" className="w-full text-primary lg:w-auto">
+    <Button
+      asChild
+      variant="outline"
+      className="w-full text-primary lg:w-auto"
+      onClick={onClick}
+    >
       <Link href={ADMIN_PAGE}>
         <LibraryBig className="h-5 w-5 text-primary" />
         {/* TODO: This may not fit All designs */}
@@ -49,14 +60,14 @@ export function Nav(): JSX.Element {
               <SheetTitle>Menu</SheetTitle>
 
               <div className="flex gap-4">
-                <AdminPageButton />
+                <AdminPageButton onClick={toggleIsOpen} />
 
                 <Button
                   variant="outline"
                   className="w-full text-primary"
                   onClick={() => {
                     logout();
-                    setIsOpen(false);
+                    toggleIsOpen();
                   }}
                 >
                   <LogOut className="h-5 w-5" />
