@@ -210,14 +210,12 @@ function Register({ onLoginClick }: RegisterProps): JSX.Element {
 }
 
 export function AuthWrapper({ children }: AuthWrapperProps): JSX.Element {
-  const { isAuthenticated, user } = useAuth();
+  const { isAuthenticated } = useAuth();
   const [isRegistered, setIsRegistered] = useState<boolean>(true);
 
   const toggleRegister = (): void => {
     setIsRegistered((prev) => !prev);
   };
-
-  console.log({ isAuthenticated, user });
 
   if (isAuthenticated) {
     return children;

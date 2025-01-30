@@ -7,17 +7,21 @@ import { Button } from '@/components/ui/button';
 import { useAuth } from '@/contexts/auth-context';
 import type { IBook } from '@/types/book';
 import { fetchBookById } from '@/app/actions';
-import type { JSX } from 'react';
+import { useState, type JSX } from 'react';
 import { bookIdSchema } from '@/validations/book';
 import { CardHeader, CardTitle, CardContent, Card } from '@/components/ui/card';
 import { Book } from 'lucide-react';
 import Link from 'next/link';
+import { BookEditForm } from '@/components/book/book-edit-form';
 
 // TODO: Split this component into smaller components
 export default function BookPage(): JSX.Element {
   const { id } = useParams();
   const queryClient = useQueryClient();
   const { isAdmin } = useAuth();
+
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [isDeleting, setIsDeleting] = useState<boolean>(false);
 
   const parsedId = bookIdSchema.safeParse(id);
 
@@ -39,6 +43,10 @@ export default function BookPage(): JSX.Element {
     enabled: Boolean(bookId),
   });
 
+  const toggleEdit = (): void => {
+    setIsEditing((prev) => !prev);
+  };
+
   // TODO: Move to others components
 
   if (!parsedId.success) {
@@ -55,29 +63,40 @@ export default function BookPage(): JSX.Element {
 
   return (
     <main className="flex min-h-screen w-full flex-col items-center gap-4 px-4 pb-16 pt-32 lg:px-0">
-      <Card
-        key={bookData.id}
-        className="flex h-56 w-full max-w-sm flex-col justify-between"
-      >
-        <CardHeader>
-          <Book className="h-10 w-10" />
+      {isEditing ? (
+        <BookEditForm book={bookData} onCancel={toggleEdit} />
+      ) : null}
 
-          <CardTitle className="line-clamp-2 text-xl font-bold">
-            {bookData.title}
-          </CardTitle>
-        </CardHeader>
+      {!isEditing ? (
+        <Card
+          key={bookData.id}
+          className="flex h-56 w-full max-w-sm flex-col justify-between"
+        >
+          <CardHeader>
+            <Book className="h-10 w-10" />
 
-        <CardContent className="flex flex-col gap-2">
-          <p className="text-lg text-muted-foreground">by {bookData.author}</p>
-          <p className="text-md text-muted-foreground">
-            Published in {bookData.year}
-          </p>
-        </CardContent>
-      </Card>
+            <CardTitle className="line-clamp-2 text-xl font-bold">
+              {bookData.title}
+            </CardTitle>
+          </CardHeader>
 
-      {isAdmin && (
+          <CardContent className="flex flex-col gap-2">
+            <p className="text-lg text-muted-foreground">
+              by {bookData.author}
+            </p>
+            <p className="text-md text-muted-foreground">
+              Published in {bookData.year}
+            </p>
+          </CardContent>
+        </Card>
+      ) : null}
+      {isAdmin && !isEditing ? (
         <div className="flex justify-center gap-4 text-primary">
-          <Button variant="outline" className="w-32 border-primary">
+          <Button
+            variant="outline"
+            className="w-32 border-primary"
+            onClick={toggleEdit}
+          >
             Edit
           </Button>
 
@@ -85,11 +104,13 @@ export default function BookPage(): JSX.Element {
             Delete
           </Button>
         </div>
-      )}
+      ) : null}
 
-      <Button asChild variant="outline" className="w-32">
-        <Link href="/">Back</Link>
-      </Button>
+      {!isEditing ? (
+        <Button asChild variant="outline" className="w-32">
+          <Link href="/">Back</Link>
+        </Button>
+      ) : null}
     </main>
   );
 }

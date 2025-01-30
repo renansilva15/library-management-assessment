@@ -38,73 +38,73 @@
       "id": "1",
       "title": "The Hobbit",
       "author": "J.R.R. Tolkien",
-      "year": 1937
+      "year": "1937"
     },
     {
       "id": "2",
-      "title": "Harry Potter",
+      "title": "Harry Potter2",
       "author": "J.K. Rowling",
-      "year": 1997
+      "year": "1997"
     },
     {
       "id": "3",
       "title": "Don Quixote",
       "author": "Miguel de Cervantes",
-      "year": 1605
+      "year": "1605"
     },
     {
       "id": "4",
       "title": "The Little Prince",
       "author": "Antoine de Saint-Exupéry",
-      "year": 1943
+      "year": "1943"
     },
     {
       "id": "5",
       "title": "The Lord of the Rings",
       "author": "J.R.R. Tolkien",
-      "year": 1954
+      "year": "1954"
     },
     {
       "id": "6",
       "title": "A Tale of Two Cities",
       "author": "Charles Dickens",
-      "year": 1859
+      "year": "1859"
     },
     {
       "id": "7",
       "title": "The Da Vinci Code",
       "author": "Dan Brown",
-      "year": 2003
+      "year": "2003"
     },
     {
       "id": "8",
       "title": "Think and Grow Rich",
       "author": "Napoleon Hill",
-      "year": 1937
+      "year": "1937"
     },
     {
       "id": "9",
       "title": "The Catcher in the Rye",
       "author": "J.D. Salinger",
-      "year": 1951
+      "year": "1951"
     },
     {
       "id": "10",
       "title": "The Great Gatsby",
       "author": "F. Scott Fitzgerald",
-      "year": 1925
+      "year": "1925"
     },
     {
       "id": "11",
       "title": "The Alchemist",
       "author": "Paulo Coelho",
-      "year": 1988
+      "year": "1988"
     },
     {
       "id": "12",
       "title": "The Chronicles of Narnia",
       "author": "C.S. Lewis",
-      "year": 1950
+      "year": "1950"
     }
   ]
 }

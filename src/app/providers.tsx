@@ -1,5 +1,6 @@
 'use client';
 
+import { Toaster } from '@/components/ui/toaster';
 import { AuthContextProvider } from '@/contexts/auth-context';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
@@ -16,6 +17,7 @@ export function Providers({ children }: ThemeProviderProps): JSX.Element {
       <AuthContextProvider>
         <QueryClientProvider client={queryClient}>
           {children}
+          <Toaster />
         </QueryClientProvider>
       </AuthContextProvider>
     </NextThemesProvider>
