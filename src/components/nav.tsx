@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { useAuth } from '@/contexts/auth-context';
 import { ADMIN_PAGE } from '@/constants/routes';
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from './ui/sheet';
+import { cn } from '@/lib/utils';
 
 interface AdminPageButtonProps {
   onClick?: () => void;
@@ -39,13 +40,21 @@ export function AdminPageButton({
 }
 
 export function Nav(): JSX.Element {
-  const { isAuthenticated, logout } = useAuth();
+  const { isAuthenticated, logout, isAdmin } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleIsOpen = (): void => setIsOpen((prev) => !prev);
 
+  const exceedingMarginLeft =
+    isAuthenticated && isAdmin ? '-ml-[116px]' : '-ml-[58px]';
+
   return (
-    <nav className="flex items-center gap-2">
+    <nav
+      className={cn(
+        'flex items-center gap-2',
+        isAuthenticated ? exceedingMarginLeft : 'ml-0',
+      )}
+    >
       <ThemeSwitcher />
 
       {isAuthenticated ? (
@@ -77,7 +86,7 @@ export function Nav(): JSX.Element {
             </SheetContent>
           </Sheet>
 
-          <div className="hidden lg:block">
+          <div className="hidden gap-2 lg:flex">
             <AdminPageButton />
 
             <Button variant="outline" className="text-primary" onClick={logout}>
