@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
-import { ThemeProvider } from './providers';
+import { Providers } from './providers';
 import type { JSX } from 'react';
 import { Header } from '@/components/header';
 import { AuthWrapper } from '@/components/auth-wrapper';
-import { AuthContextProvider } from '@/contexts/auth-context';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -33,9 +32,10 @@ export default function RootLayout({
      * The "suppressHydrationWarning" works only one level deep, meaning it does not
      * suppress warnings for the children of the <body> tag.
      *
-     * We need to use it because of the ThemeProvider. This happens because Next.js
-     * renders on the server, and we cannot determine the theme during server-side rendering.
-     * As a result, the theme will always be undefined until it is mounted on the client.
+     * We need to use it because of the Theme Provider (check the Providers file). This
+     * happens because Next.js renders on the server, and we cannot determine the theme
+     * during server-side rendering. As a result, the theme will always be undefined
+     * until it is mounted on the client.
      *
      * More at: https://github.com/pacocoursey/next-themes
      */
@@ -43,12 +43,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground antialiased`}
       >
-        <ThemeProvider>
-          <AuthContextProvider>
-            <Header />
-            <AuthWrapper>{<>{children}</>}</AuthWrapper>
-          </AuthContextProvider>
-        </ThemeProvider>
+        <Providers>
+          <Header />
+          <AuthWrapper>{<>{children}</>}</AuthWrapper>
+        </Providers>
       </body>
     </html>
   );

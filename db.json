@@ -19,6 +19,12 @@
       "email": "renangabrielsilva150@gmail.com",
       "password": "123456",
       "role": "user"
+    },
+    {
+      "id": "321a",
+      "email": "juncosolutions@gmail.com",
+      "password": "123456",
+      "role": "user"
     }
   ],
   "books": [

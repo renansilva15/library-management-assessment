@@ -11,7 +11,7 @@ export function Header(): JSX.Element {
           <Book className="h-10 w-10 text-primary" />
         </Link>
 
-        <h1 className="text-3xl text-primary">Library Management</h1>
+        <h1 className="text-4xl font-bold text-primary">Library Management</h1>
 
         <Nav />
       </div>
