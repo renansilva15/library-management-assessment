@@ -23,3 +23,11 @@ export async function updateBook(
 export async function deleteBook(id: string): Promise<void> {
   await api.delete(`/books/${id}`);
 }
+
+export async function createBook(book: Partial<IBook>): Promise<IBook> {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- TODO: Handle id before sending to the server
+  const { id, ...bookWithoutId } = book;
+
+  const response = await api.post('/books', bookWithoutId);
+  return response.data;
+}

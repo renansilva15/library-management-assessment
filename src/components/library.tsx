@@ -9,6 +9,7 @@ import { Button } from './ui/button';
 import { fetchBooks } from '@/app/actions';
 import { BOOKS_PAGE } from '@/constants/routes';
 import Link from 'next/link';
+import { NewBookButton } from './book/book-new-popup';
 
 export function Library(): JSX.Element {
   const {
@@ -33,22 +34,26 @@ export function Library(): JSX.Element {
   }
 
   return (
-    <div className="grid w-full max-w-screen-md grid-cols-2 gap-4 px-4 lg:grid-cols-3">
-      {dataBooks?.map((book) => (
-        <Card key={book.id} className="flex h-56 flex-col justify-between">
-          <CardHeader>
-            <Book className="h-10 w-10" />
-            <CardTitle className="line-clamp-2 text-xl font-bold">
-              {book.title}
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="flex flex-col gap-2">
-            <Button asChild variant="outline" className="text-primary">
-              <Link href={`${BOOKS_PAGE}/${book.id}`}>More</Link>
-            </Button>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
+    <>
+      <NewBookButton />
+
+      <div className="grid w-full max-w-screen-md grid-cols-2 gap-4 px-4 lg:grid-cols-3">
+        {dataBooks?.map((book) => (
+          <Card key={book.id} className="flex h-56 flex-col justify-between">
+            <CardHeader>
+              <Book className="h-10 w-10" />
+              <CardTitle className="line-clamp-2 text-xl font-bold">
+                {book.title}
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="flex flex-col gap-2">
+              <Button asChild variant="outline" className="text-primary">
+                <Link href={`${BOOKS_PAGE}/${book.id}`}>More</Link>
+              </Button>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </>
   );
 }

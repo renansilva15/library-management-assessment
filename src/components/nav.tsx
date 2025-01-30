@@ -2,7 +2,7 @@
 
 import { useState, type JSX } from 'react';
 import { ThemeSwitcher } from './theme-switcher';
-import { LibraryBig, LogOut, Menu } from 'lucide-react';
+import { LogOut, Menu, User } from 'lucide-react';
 import { Button } from './ui/button';
 import Link from 'next/link';
 import { useAuth } from '@/contexts/auth-context';
@@ -30,7 +30,7 @@ export function AdminPageButton({
       onClick={onClick}
     >
       <Link href={ADMIN_PAGE}>
-        <LibraryBig className="h-5 w-5 text-primary" />
+        <User className="h-5 w-5 text-primary" />
         {/* TODO: This may not fit All designs */}
         <p className="lg:hidden">Admin</p>
       </Link>

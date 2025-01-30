@@ -50,8 +50,6 @@ export function BookEditForm({
   });
 
   const onSubmit = async (data: IBook): Promise<void> => {
-    console.log(data);
-
     editMutation.mutate(data);
   };
 
