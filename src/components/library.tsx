@@ -23,7 +23,7 @@ export function Library(): JSX.Element {
   });
 
   if (isLoading) {
-    // TODO: Add skeleton
+    // The components are first loaded at the server side, so it is not likely to need the loading state until we add pagination
     return <div>Loading...</div>;
   }
 
