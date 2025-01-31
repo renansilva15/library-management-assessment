@@ -6,6 +6,8 @@ Uma aplicação web para gerenciamento de livros com controle de acesso para usu
 
 ## ⚙️ Como Rodar o Projeto
 
+Nota: É necessário ter instalado o [Node.js](https://nodejs.org/).
+
 1. Clone o repositório:
 
 ```sh
@@ -73,7 +75,9 @@ A aplicação suporta modo claro e escuro via Next Theme.
 
 A web application for managing books with role-based access control for users and admins.
 
-⚙️ How to Run the Project
+## ⚙️ How to Run the Project
+
+Note: you will need [Node.js](https://nodejs.org/).
 
 1. Clone the repository:
 
