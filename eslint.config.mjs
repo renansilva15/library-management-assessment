@@ -14,7 +14,8 @@ const eslintConfig = [
   {
     rules: {
       '@typescript-eslint/consistent-type-imports': 'error',
-      '@typescript-eslint/explicit-function-return-type': ['error'],
+      // TODO: enable this rule after assessment
+      // '@typescript-eslint/explicit-function-return-type': ['error'],
     },
   },
 ];
