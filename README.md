@@ -69,6 +69,11 @@ A aplicação suporta modo claro e escuro via Next Theme.
 - `/app` → Páginas e Server Actions
 - `/lib` → Configuração do React Query
 
+5. Usuários padrão são:
+
+- Admin - `admin@example.com` / `password123`
+- Usuário Comum - `user@example.com` / `password123`
+
 ---
 
 # 📚 Book Management
@@ -99,6 +104,11 @@ npm run dev
 ```
 
 4. Open: [http://localhost:3000](http://localhost:3000)
+
+5. Default users are:
+
+- Admin - `admin@example.com` / `password123`
+- Regular User - `user@example.com` / `password123`
 
 📌 Project Structure
 
