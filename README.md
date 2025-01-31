@@ -1,38 +1,149 @@
-# Library Management
+<!-- TODO: Organize multiple languages -->
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📚 Gerenciamento de Livros
 
-## Getting Started
+Uma aplicação web para gerenciamento de livros com controle de acesso para usuários e administradores.
 
-First, run the development server:
+## ⚙️ Como Rodar o Projeto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. Clone o repositório:
+
+```sh
+git clone https://github.com/seu-usuario/seu-repositorio.git
+cd seu-repositorio
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Instale as dependências:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Execute o JSON Server:
 
-## Learn More
+```sh
+npx json-server --watch db.json --port 3001
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Inicie o servidor Next.js:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```sh
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚀 Tecnologias Utilizadas
 
-## Deploy on Vercel
+- Next.js 15 (App Router)
+- React com TypeScript
+- TailwindCSS
+- React Query + Server Actions
+- JSON Server (Simulação de API REST)
+- Next Theme (Modo Claro/Escuro)
+- Shadcn/ui
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📌 Funcionalidades
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 🔑 Autenticação
+
+- **Login:** E-mail e senha, com validação.
+- **Registro:** Apenas usuários comuns podem se registrar.
+
+### 👥 Gerenciamento de Usuários
+
+- **Admin Inicial:** O primeiro usuário registrado é o administrador.
+- **Criação de Administradores:** Apenas um admin pode promover outro usuário.
+- **Controle de Acesso:** Usuários comuns podem visualizar livros, mas não editá-los.
+
+### 📖 Gerenciamento de Livros
+
+- **Listagem:** Todos os usuários podem visualizar livros.
+- **CRUD (Somente Administradores):** Criar, editar e remover livros.
+- **Detalhes do Livro:** Exibição de informações individuais.
+
+### 🎨 Temas
+
+A aplicação suporta modo claro e escuro via Next Theme.
+
+5. Acesse: [http://localhost:3000](http://localhost:3000)
+
+## 📌 Organização do Código
+
+- `/components` → Componentes reutilizáveis
+- `/contexts` → Contexto de autenticação
+- `/app` → Páginas e Server Actions
+- `/lib` → Configuração do React Query
+
+---
+
+# 📚 Book Management
+
+A web application for managing books with role-based access control for users and admins.
+
+⚙️ How to Run the Project
+
+1. Clone the repository:
+
+```sh
+git clone https://github.com/your-user/your-repository.git
+cd your-repository
+```
+
+2. Install dependencies:
+
+```sh
+npm install
+```
+
+3. Start JSON Server:
+
+```sh
+npx json-server --watch db.json --port 3001
+```
+
+4. Run Next.js server:
+
+```sh
+npm run dev
+```
+
+5. Open: [http://localhost:3000](http://localhost:3000)
+
+📌 Project Structure
+
+- `/components` → Reusable components
+- `/contexts` → Authentication context
+- `/app` → Pages and Server Actions
+- `/lib` → React Query configuration
+
+🚀 Technologies Used
+
+- Next.js 15 (App Router)
+- React with TypeScript
+- TailwindCSS
+- React Query + Server Actions
+- JSON Server (Mock API)
+- Next Theme (Dark/Light Mode)
+- Shadcn/ui
+
+## 📌 Features
+
+### 🔑 Authentication
+
+- **Login:** Email and password with validation.
+- **Register:** Only regular users can sign up.
+
+### 👥 User Management
+
+- **Initial Admin:** The first registered user is the admin.
+- **Admin Creation:** Only an admin can promote another user.
+- **Access Control:** Regular users can view books but not edit them.
+
+### 📖 Book Management
+
+- **Listing:** All users can view books.
+- **CRUD (Admins Only):** Create, edit, and delete books.
+- **Book Details:** Display detailed information.
+
+### 🎨 Themes
+
+The app supports light and dark modes using Next Theme.
