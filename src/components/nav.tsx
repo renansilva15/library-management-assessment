@@ -46,7 +46,7 @@ export function Nav(): JSX.Element {
   const toggleIsOpen = (): void => setIsOpen((prev) => !prev);
 
   const exceedingMarginLeft =
-    isAuthenticated && isAdmin ? '-ml-[116px]' : '-ml-[58px]';
+    isAuthenticated && isAdmin ? 'lg:-ml-[116px]' : 'lg:-ml-[58px]';
 
   return (
     <nav

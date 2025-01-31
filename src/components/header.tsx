@@ -11,7 +11,7 @@ export function Header(): JSX.Element {
           <Book className="h-10 w-10 text-primary" />
         </Link>
 
-        <h1 className="line-clamp-2 pl-4 text-2xl font-bold text-primary lg:line-clamp-none lg:pl-0 lg:text-4xl">
+        <h1 className="line-clamp-2 px-4 text-2xl font-bold text-primary lg:line-clamp-none lg:pl-0 lg:text-4xl">
           Library Management
         </h1>
 
