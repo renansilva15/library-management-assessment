@@ -2,6 +2,8 @@
 
 import { api } from '@/lib/api';
 import type { IBook } from '@/types/book';
+import { Role } from '@/types/role';
+import type { User } from '@/types/user';
 
 export async function fetchBooks(): Promise<IBook[]> {
   const response = await api.get('/books');
@@ -29,5 +31,10 @@ export async function createBook(book: Partial<IBook>): Promise<IBook> {
   const { id, ...bookWithoutId } = book;
 
   const response = await api.post('/books', bookWithoutId);
+  return response.data;
+}
+
+export async function fetchAdminUsers(): Promise<User[]> {
+  const response = await api.get(`/users?role=${Role.Admin}`);
   return response.data;
 }

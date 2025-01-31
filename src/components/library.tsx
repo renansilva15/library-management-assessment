@@ -24,7 +24,7 @@ export function Library(): JSX.Element {
   });
 
   if (isLoadingBooks) {
-    // The components are first loaded at the server side, so it is not likely to need the loading state until we add pagination
+    // The items are first fetched at the server side, so it is not likely to need the loading state until we add pagination
     return <div>Loading...</div>;
   }
 
