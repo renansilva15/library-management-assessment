@@ -27,6 +27,13 @@ npm install
 npm run dev
 ```
 
+4. Acesse: [http://localhost:3000](http://localhost:3000)
+
+5. Usuários padrão são:
+
+- Admin - `admin@example.com` / `password123`
+- Usuário Comum - `user@example.com` / `password123`
+
 ## 🚀 Tecnologias Utilizadas
 
 - Next.js 15 (App Router)
@@ -60,19 +67,12 @@ npm run dev
 
 A aplicação suporta modo claro e escuro via Next Theme.
 
-4. Acesse: [http://localhost:3000](http://localhost:3000)
-
 ## 📌 Organização do Código
 
 - `/components` → Componentes reutilizáveis
 - `/contexts` → Contexto de autenticação
 - `/app` → Páginas e Server Actions
 - `/lib` → Configuração do React Query
-
-5. Usuários padrão são:
-
-- Admin - `admin@example.com` / `password123`
-- Usuário Comum - `user@example.com` / `password123`
 
 ---
 
