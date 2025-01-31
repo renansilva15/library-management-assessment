@@ -34,7 +34,23 @@ export async function createBook(book: Partial<IBook>): Promise<IBook> {
   return response.data;
 }
 
-export async function fetchAdminUsers(): Promise<User[]> {
-  const response = await api.get(`/users?role=${Role.Admin}`);
+export async function fetchUsers(): Promise<User[]> {
+  const response = await api.get('/users');
   return response.data;
+}
+
+export async function promoteToAdmin(userId: string): Promise<void> {
+  // TODO: We may have more roles in the future
+  await api.patch(`/users/${userId}`, { role: Role.Admin });
+}
+
+export async function demoteToUser(
+  userId: string,
+  currentUserId: string,
+): Promise<void> {
+  if (userId === currentUserId) {
+    throw new Error('Cannot demote yourself');
+  }
+
+  await api.patch(`/users/${userId}`, { role: Role.User });
 }

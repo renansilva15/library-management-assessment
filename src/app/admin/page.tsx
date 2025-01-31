@@ -5,14 +5,14 @@ import {
   QueryClient,
 } from '@tanstack/react-query';
 import type { JSX } from 'react';
-import { fetchAdminUsers } from '../actions';
-import { AdminUsers } from '@/components/admin-users';
+import { fetchUsers } from '../actions';
+import { Users } from '@/components/admin/users';
 
 export default async function AdminPage(): Promise<JSX.Element> {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
     queryKey: [USERS_CACHE_KEY],
-    queryFn: fetchAdminUsers,
+    queryFn: fetchUsers,
   });
 
   return (
@@ -20,7 +20,7 @@ export default async function AdminPage(): Promise<JSX.Element> {
       <h1 className="text-3xl font-semibold">Admin</h1>
 
       <HydrationBoundary state={dehydrate(queryClient)}>
-        <AdminUsers />
+        <Users />
       </HydrationBoundary>
     </main>
   );
