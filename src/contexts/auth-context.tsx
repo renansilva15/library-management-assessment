@@ -34,6 +34,14 @@ const LOCAL_STORAGE_USER_KEY = 'user';
 
 const AuthContext = createContext<AuthContextState | undefined>(undefined);
 
+function updateCookieUser(user: User): void {
+  document.cookie = `user=${JSON.stringify(user)}; path=/; secure`;
+}
+
+function removeCookieUser(): void {
+  document.cookie = `user=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC`;
+}
+
 function getLocalStorageUser(): User | null {
   if (typeof window === 'undefined') {
     return null;
@@ -80,6 +88,7 @@ export function AuthContextProvider({
       const userData: UserWithToken = { ...user, token: fakeToken };
 
       updateLocalStorageUser(userData);
+      updateCookieUser(userData);
 
       setUser(userData);
 
@@ -117,6 +126,7 @@ export function AuthContextProvider({
 
   const logout = (): void => {
     removeLocalStorageUser();
+    removeCookieUser();
     setUser(null);
   };
 
