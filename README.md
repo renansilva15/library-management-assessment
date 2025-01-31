@@ -19,13 +19,7 @@ cd seu-repositorio
 npm install
 ```
 
-3. Execute o JSON Server:
-
-```sh
-npx json-server --watch db.json --port 3001
-```
-
-4. Inicie o servidor Next.js:
+3. Inicie o servidor Next.js:
 
 ```sh
 npm run dev
@@ -64,7 +58,7 @@ npm run dev
 
 A aplicação suporta modo claro e escuro via Next Theme.
 
-5. Acesse: [http://localhost:3000](http://localhost:3000)
+4. Acesse: [http://localhost:3000](http://localhost:3000)
 
 ## 📌 Organização do Código
 
@@ -94,19 +88,13 @@ cd your-repository
 npm install
 ```
 
-3. Start JSON Server:
-
-```sh
-npx json-server --watch db.json --port 3001
-```
-
-4. Run Next.js server:
+3. Run Next.js server:
 
 ```sh
 npm run dev
 ```
 
-5. Open: [http://localhost:3000](http://localhost:3000)
+4. Open: [http://localhost:3000](http://localhost:3000)
 
 📌 Project Structure
 
