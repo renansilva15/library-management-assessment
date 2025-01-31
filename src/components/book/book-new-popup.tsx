@@ -113,6 +113,7 @@ export function BookCreatePopup({
 
           <DialogFooter className="flex justify-end gap-2">
             <Button
+              className="w-full border-black dark:border-white lg:w-32"
               variant="outline"
               onClick={onCancel}
               disabled={isSubmitting}
@@ -122,7 +123,7 @@ export function BookCreatePopup({
 
             <Button
               type="submit"
-              className="bg-primary text-white"
+              className="w-full bg-primary text-white lg:w-32"
               disabled={isSubmitting}
             >
               {isSubmitting ? (
