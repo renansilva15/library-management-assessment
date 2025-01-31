@@ -29,8 +29,8 @@ export function Users(): JSX.Element {
   } = useQuery({
     queryKey: [USERS_CACHE_KEY],
     queryFn: fetchUsers,
-    refetchOnMount: false,
-    refetchOnReconnect: false,
+    refetchInterval: 5000,
+    refetchOnWindowFocus: false,
   });
 
   if (isLoadingUsers) {
