@@ -122,7 +122,7 @@ function Register({ onLoginClick }: RegisterProps): JSX.Element {
   const onSubmit = async (data: RegisterSchema): Promise<void> => {
     setError(null);
 
-    const response = await registerAuth(data.email, data.password);
+    const response = await registerAuth(data.name, data.email, data.password);
 
     if (response.error) {
       setError(response.error);
@@ -136,6 +136,20 @@ function Register({ onLoginClick }: RegisterProps): JSX.Element {
       <CardTitle className="text-center">Register</CardTitle>
       <CardContent>
         <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+          <div>
+            <label className="text-sm font-medium">Name</label>
+
+            <Input
+              type="text"
+              placeholder="Enter your name"
+              {...register('name')}
+            />
+
+            {errors.email && (
+              <p className="text-sm text-red-500">{errors.email.message}</p>
+            )}
+          </div>
+
           <div>
             <label className="text-sm font-medium">Email</label>
 

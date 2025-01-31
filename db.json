@@ -13,24 +13,6 @@
       "email": "user@example.com",
       "password": "user123",
       "role": "user"
-    },
-    {
-      "id": "70d8",
-      "email": "renangabrielsilva150@gmail.com",
-      "password": "123456",
-      "role": "user"
-    },
-    {
-      "id": "321a",
-      "email": "juncosolutions@gmail.com",
-      "password": "123456",
-      "role": "user"
-    },
-    {
-      "id": "41e4",
-      "email": "mariapatrycia194@gmail.com",
-      "password": "123456",
-      "role": "user"
     }
   ],
   "books": [

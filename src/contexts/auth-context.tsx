@@ -16,7 +16,11 @@ type AuthResponse =
 interface AuthContextState {
   user: User | null;
   login: (email: string, password: string) => Promise<AuthResponse>;
-  register: (email: string, password: string) => Promise<AuthResponse>;
+  register: (
+    name: string,
+    email: string,
+    password: string,
+  ) => Promise<AuthResponse>;
   logout: () => void;
   isAuthenticated: boolean;
   isAdmin?: boolean;
@@ -88,13 +92,19 @@ export function AuthContextProvider({
   };
 
   const register = async (
+    name: string,
     email: string,
     password: string,
   ): Promise<AuthResponse> => {
     try {
       const role = Role.User;
 
-      const response = await api.post('/users', { email, password, role });
+      const response = await api.post('/users', {
+        name,
+        email,
+        password,
+        role,
+      });
 
       const user = response.data;
 
